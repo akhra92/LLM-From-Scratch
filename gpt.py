@@ -22,3 +22,12 @@ torch.manual_seed(1345)
 with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
+# unique characters in the text
+chars = sorted(list(set(text)))
+voc_size = len(chars)
+
+# create a mapping from characters to integers
+stoi = {ch:i for i, ch in enumerate(chars)}
+itos = {i:ch for i, ch in enumerate(chars)}
+encode = lambda s: [stoi[c] for c in s]
+decode = lambda l: ''.join([itos[i] for i in l])
